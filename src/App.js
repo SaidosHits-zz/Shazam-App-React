@@ -21,7 +21,7 @@ const App = () => {
     const options = {
       method: 'POST',
       headers: {
-        'X-RapidAPI-Key': '033b6742b7mshe3030434a7892e8p1ef822jsnbd2fe53b8f48',
+        'X-RapidAPI-Key': 'You api key',
         'X-RapidAPI-Host': 'shazam-api7.p.rapidapi.com',
       },
       body: data,
