@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-transform: capitalize;
+}
+
+.container{
+    display: grid;
+    height: 100%;
+    place-items: center;
+    text-align: center;
+    margin-top: 10%;
+    margin-left: 35%;
+  height: 350px;
+  width: 430px;
+  position: relative;
+}
+.container .wrapper{
+  position: relative;
+  height: 300px;
+  width: 100%;
+  border-radius: 10px;
+  background: #fff;
+  border: 2px dashed #c2cdda;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.wrapper.active{
+  border: none;
+}
+.wrapper .image{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.wrapper .icon{
+  font-size: 100px;
+  color: #9658fe;
+}
+.wrapper .text{
+  font-size: 20px;
+  font-weight: 500;
+  color: #5B5B7B;
+}
+.wrapper #cancel-btn i{
+  position: absolute;
+  font-size: 20px;
+  right: 15px;
+  top: 15px;
+  color: #9658fe;
+  cursor: pointer;
+  display: none;
+}
+.wrapper.active:hover #cancel-btn i{
+  display: block;
+}
+.wrapper #cancel-btn i:hover{
+  color: #e74c3c;
+}
+.wrapper .file-name{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 8px 0;
+  font-size: 18px;
+  color: #fff;
+  display: none;
+  background: b;
+}
+.wrapper.active:hover .file-name{
+  display: block;
+}
+.container #custom-btn{
+  margin-top: 30px;
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
+}
+.send-btn{
+  width: 150px;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  height: 40px;
+  margin-top: 20px;
+  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%)
+}
+.alert-danger{
+  display: none;
+}
+audio{
+  width: 100%;
+  font-size: 15px;
+  background-color: white;
+}
+audio::-webkit-media-controls-panel, video::-webkit-media-controls-panel {
+  background-color: white;
+  }
+.song-images img{
+  width: 40px;
+}
+.song-images p{
+  font-weight: 400;
+  font-size: 14px;
+}
+.song-player{
+  position: fixed;
+  bottom: 0px;
+  border: 1px solid black;
+  padding: 20px;
+  height: auto;
+  width: 100%;
+  z-index: 1000;
+  height: 80px;
+  padding: 20px 20px; 
+  display: flex;
+  background-color: white;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.song-player p{
+  margin: 0;
+  padding: 0;
+}
+.song-cover{
+  padding: 40px 100px;
+  background-image: url(https://t2.genius.com/unsafe/300x300/https%3A%2F%2Fimages.genius.com%2F9f28dbb3539fdcd04e34dcf92cab955b.1000x1000x1.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  gap: 20px;
+}
+
+.song-datails{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.753);
+  color: white;
+  padding: 40px;
+}
+.song-img img{
+  border-radius: 20px;
+}
+.song-info p{
+  color: #dbdbdb;
+  font-size: 20px;
+  margin-top: 30px;
+}
+.song-info h1{
+  font-size: 60px;
+}
+.song-info #song{
+  color: yellow;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.lyrics{
+  margin-left: 100px;
+  margin-top: 60px;
+  padding: 30px;
+  border-right: 2px silver solid;
+  font-weight: 500;
+  font-size: 22px;
+}
+.artist-lyrics{
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+}
+.artist{
+  height: 100%;
+  text-align: center;
+  padding: 30px;
+  width: 800px;
+}
+.artist img{
+  width: 400px;
+  border-radius: 10px;
+}
+.art-about{
+  margin-top: 20px;
+}
+.art-about h1{
+  font-size: 40px;
+  font-weight: 700;
+}
+.art-about h2{
+  font-size: 30px;
+  font-weight: 500;
+}
+#laodingicon{
+  position: fixed;
+  background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
