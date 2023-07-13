@@ -225,3 +225,24 @@ audio::-webkit-media-controls-panel, video::-webkit-media-controls-panel {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.notfound{
+  position :fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  width: 700px;
+}
+.notfound img{
+  width: 700px;
+}
+.notfound h1{
+  font-size: 30px;
+  text-align: center;
+  margin-top: 30px;
+}
+.alert-info{
+  display: none;
+}
+.alert-warning{
+  display: none;
+}
