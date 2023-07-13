@@ -3,25 +3,46 @@ import { useRef, useState } from 'react';
 import './App.css';
 import 'react-loading-skeleton/dist/skeleton.css'
 import laodingicon from './Bars-1s-200px.gif'
+import img404 from "./404.svg"
 
 const App = () => {
   const [info, setInfo] = useState();
   const fsong = useRef();
   const [islaoding , setloading] = useState(false)
+  const [notfound , setnotfound] = useState(false)
   const [filename , setfilename] = useState("")
   const fetchSongData = async () => {
     if(!filename){
       document.querySelector('.alert-danger').style.display= "block"
+      setTimeout(() => {
+        document.querySelector('.alert-danger').style.display = "none";
+      }, 6000);
+      return;
     }
-    
+    if(filename.size >= 5000000){
+     document.querySelector('.alert-warning').style.display ="block"
+     setTimeout(()=>{
+      document.querySelector('.alert-warning').style.display ='none'
+     }, 6000)
+     console.log(filename)
+     return;
+    }
+    if (filename.type !== "audio/mpeg"){
+      document.querySelector(".alert-info").style.display="block"
+      console.log('file type is worng')
+      setTimeout(()=>{
+      document.querySelector(".alert-info").style.display="none"        
+      },6000)
+      return;
+    }
     const url = 'https://shazam-api7.p.rapidapi.com/songs/recognize-song';
     const data = new FormData();
     data.append('audio', fsong.current.files[0]);
-
+    console.log(filename)
     const options = {
       method: 'POST',
       headers: {
-        'X-RapidAPI-Key': 'You api key',
+        'X-RapidAPI-Key': 'Your API Key',
         'X-RapidAPI-Host': 'shazam-api7.p.rapidapi.com',
       },
       body: data,
@@ -32,6 +53,11 @@ const App = () => {
       container.remove()
       setloading(true)
       const response = await fetch(url, options);
+      if(response.status === 401){
+        setnotfound(true)
+        setloading(false)
+        return
+      }
       const result = await response.json();
       setInfo(result);
       console.log(result);
@@ -40,7 +66,7 @@ const App = () => {
       console.error(error);
   
     }
-   
+       
   };
  
   const active =() =>{
@@ -50,7 +76,13 @@ const App = () => {
   return (
     <>
 <div class="alert alert-danger" role="alert">
-  Please Upload your song file
+  <h5>Please Upload your song file</h5>
+</div>
+<div class="alert alert-info" role="alert">
+ <h5>Sorry we don't accept this type of file </h5>
+</div>
+<div class="alert alert-warning" role="alert">
+<h5>The file size is too large. The maximum file size allowed is 5MB!</h5>
 </div>
       <div class="container">
           <div class="wrapper">
@@ -83,6 +115,14 @@ const App = () => {
         <>
         <img id="laodingicon"src={laodingicon}/>
         
+        </>
+      )}
+      {notfound &&(
+        <>
+        <div className="notfound">
+        <img src={img404}/>
+        <h1>song not found try another audio or check u api key </h1>
+        </div>
         </>
       )}
       {info && !islaoding &&(
